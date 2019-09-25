@@ -12,8 +12,8 @@ var authorizeObject = {
 }
 
 ciscoRouter.get('/adduser', async (req,res) =>{
-    console.log(req,'llllll')
-    let temp = {name:'test',mobile:8987666677,email:'test@gmail.com'}
+    // console.log(req)
+    let temp = {name:'test2',mobile:8987366677,email:'test2@gmail.com'}
     let userS = new Users(temp)
     userS.save(function(err){
         if(err){
