@@ -24,7 +24,7 @@ ciscoRouter.get('/adduser', async (req,res) =>{
         } else {
             return res.send({
                 status:true,
-                data:user
+                data:userS
             })
         }
     })
