@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf8">
+  <title>TRACKtech VTC</title>
+  <script src="https://code.s4d.io/widget-space/production/bundle.js"></script>
+  <!-- <script src="/views/assets/bundle.js"></script> -->
+  <!-- <link rel="stylesheet" href="https://code.s4d.io/widget-space/production/main.css"> -->
+  <link rel="stylesheet" href="/views/assets/main.css">
+  <link rel="stylesheet" href="/views/assets/widget.css">
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+  integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" /> -->
+  <link rel="stylesheet" href="/views/assets/Font-Awesome-5.7.2/css/all.css">
+</head>
+
+<body>
+  <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.0/bootstrap.min.js"></script> -->
+  <div class="container container-table" style="widows: 100%;">
+    <div class="row vertical-center-row">
+      <div id="cisco_block" class="col-md-12">
+        <div class="row">
+          <div class="col-md-4">
+            <span>
+              <img src="/views/assets/cisco_logo1.png" style="height:55px" />
+            </span>
+          </div>
+          <div id="ttLogo" class="col-md-8" style="padding:initial">
+            <span style="float: right;">
+              <img src="/views/assets/TRACKtech_Logo.jpg" style="height:55px; width:200px" />
+            </span>
+          </div>
+
+        </div>
+        <div class="row">
+          <div id="my-webexteams-widget" style=" height: 500px;"> </div>
+        </div>
+
+      </div>
+       
+      <div id="notes_block" style="display:none; margin-top: 55px; border: 1px solid gray;padding: 0px;" class="">
+        <div class="tab-content" style="width:100%">
+
+          <div id="notes" style="display:none;height:13em;overflow-y: scroll; background-color: #635e5e30; text-align: left;margin-left: 5px;">
+          </div>
+          <div class="" id="tiny" style="height: 12em ;">
+            <div class="">
+              <div class="">
+                <div class="" style="width:100%">
+                  <textarea class="tinymca" id="textEditor"></textarea>
+                </div>
+              </div>
+
+              <div class="row" style="float: right;margin:0">
+                 
+                <div class=" " style="padding: 1px;">
+                  <a id="getnotes" type="submit" style="background: grey;margin-top: 3px;"
+                    class="btn btn-default btn-sm float-right">Get
+                    Notes</a>
+                </div>
+                <div class="" style="padding: 1px;">
+                  <a id="addnotes" type="submit" style="background: grey;margin-top: 3px;"
+                    class="btn btn-default btn-sm float-right">Add
+                    Notes</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-12">
+          <div class="" id="notesBtn" style="float:right">
+              <a onclick="manageUi('showNotes')" id="showNotes" style="display:inline"
+                class="btn btn-sm btn-info"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+                Notes</a>
+              <a onclick="manageUi('hideNotes')" id="hideNotes" style="display:none" class="btn btn-info btn-sm"> 
+                  <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                  Notes</a>
+            </div>
+      </div>
+    </div>
+      
+
+    </div>
+  </div>
+
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
+  <script src="/views/assets/jquery-2.1.4.js"></script>
+  <script src="/views/assets/bootstrap.min.js"></script>
+
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script> -->
+
+  <script src="/views/moment.js"></script>
+  <script src="/views/tinymce/tinymce.min.js"></script>
+  <script>
+    tinymce.init({
+      selector: "textarea",
+      statusbar: false,
+      branding:false,
+      plugins: [
+        "advlist autolink lists link image",
+        "code fullscreen",
+        "insertdatetime table paste"
+      ],
+      //  plugins: [
+      //   "advlist autolink lists link image charmap print preview anchor",
+      //   "searchreplace visualblocks code fullscreen",
+      //   "insertdatetime media table paste "
+      // ],
+      // toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+    });
+  </script>
+  <!-- <script>
+      var widgetEl = document.getElementById('my-webexteams-widget');
+      // Init a new widget
+      ciscospark.widget(widgetEl).spaceWidget({
+       accessToken: 'ODEzMDAzYzgtMjM5Yi00OTI5LWEwNmYtOTIyMDc1NjFmODYwNTI5NzU0MmQtMWMx_PF84_a78a350f-a848-41dc-a9e1-f9e74c40d3c0',
+        destinationId: 'Y2lzY29zcGFyazovL3VzL1RFQU0vOTZhMjZiMjAtNWFjMy0xMWU5LTg0ODMtYjc1MzQ4NTgyMGZk',
+    destinationType: 'spaceId',
+    spaceActivities: {"files":true,"meet":true,"message":true,"people":true},
+    initialActivity: 'message',
+    secondaryActivitiesFullWidth: false
+      });
+    </script> -->
+  <!--  <script>
+        var widgetEl = document.getElementById('my-webexteams-widget');
+        // Init a new widget
+        ciscospark.widget(widgetEl).spaceWidget({
+		guestToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJyYW0iLCJuYW1lIjoiSm9obiBEb2UiLCJpc3MiOiJZMmx6WTI5emNHRnlhem92TDNWekwwOVNSMEZPU1ZwQlZFbFBUaTh6TXpGaU5UTm1ZUzAxWkdObUxUUXdZalV0WVRNeU15MHpZalZtWmpFeU1UTTBOR1kifQ.BVTXHlY2DhBGlsmd4VxSNBmjKXjoxo7VPsemaLn97NM',
+		destinationId: 'kalyan0055@gmail.com',
+		destinationType: 'email',
+		spaceActivities: {"files":true,"meet":true,"message":true,"people":true},
+		initialActivity: 'message',
+		secondaryActivitiesFullWidth: false
+        });
+    </script>  -->
+
+
+  <script>
+    var jwtToken;
+    var emailvalue;
+    var key;
+    let urlqueryStrings = (new URL(document.location)).searchParams;
+    let params = new URLSearchParams(urlqueryStrings);
+    let entries = params.entries(); //returns an iterator of decoded [key,value] tuples
+    let queryStings = this.paramsToObject(entries); //{abc:"foo",def:"[asf]",xyz:"5"}
+    function paramsToObject(entries) {
+      let result = {}
+      for (let entry of entries) { // each 'entry' is a [key, value] tupple
+        const [key, value] = entry;
+        result[key] = value;
+      }
+      return result;
+    }
+    if (queryStings) {
+      var isGuest = Object.keys(queryStings);
+      var Guest = isGuest.filter(function (guest) {
+        return guest.toLowerCase() == 'guest';
+      });
+
+      var guest_Params;
+      var guest_Value;
+      // for (key in queryStings) {
+      if ((queryStings.hasOwnProperty('guest')) == true) {
+        guest_Value = queryStings['guest'];
+        //do something with value;
+      }
+      if ((queryStings.hasOwnProperty('userId') == true) || (queryStings.hasOwnProperty('email') == true)) {
+        emailvalue = queryStings['email'];
+        key = 'email';
+      }
+      if ((queryStings.hasOwnProperty('spaceId') == true)) {
+        emailvalue = queryStings['spaceId'];
+        key = 'spaceId';
+      }
+      // }
+      guest_Params = (Guest.length > 0) ? { name: guest_Value } : { name: 'PO' };
+    }
+
+   $.getJSON('/guestUserToken', guest_Params, function (data) {
+    // $.getJSON('/accessToken', guest_Params, function (data) {
+      if (data.success) {
+        jwtToken = data.jwtToken
+        let output = queryStings;
+        // let value = Object.values(output).toString();
+        // let key = Object.keys(output).toString();
+        // guestToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJyYW0iLCJuYW1lIjoiSm9obiBEb2UiLCJpc3MiOiJZMmx6WTI5emNHRnlhem92TDNWekwwOVNSMEZPU1ZwQlZFbFBUaTh6TXpGaU5UTm1ZUzAxWkdObUxUUXdZalV0WVRNeU15MHpZalZtWmpFeU1UTTBOR1kifQ.BVTXHlY2DhBGlsmd4VxSNBmjKXjoxo7VPsemaLn97NM',
+        // destinationId: 'Y2lzY29zcGFyazovL3VzL1BFT1BMRS81ODFlNzRlMi1jYjFmLTQ0YTgtYjY3NS05ZGE4NjE2ZTE3ZWI',
+        // accessToken : 'YzRjMTc2MWItYzkwMC00MWM3LWE5OWYtZjE5ZmFhYTBkZWRhZGI3YmM2MWQtMTY0_PF84_a78a350f-a848-41dc-a9e1-f9e74c40d3c0',
+        // destinationId: 'Y2lzY29zcGFyazovL3VzL1RFQU0vNWE2ZjBiNDAtNWY1MC0xMWU5LTlhYzMtMzNmOGJmMGJhOGVm',
+        // destinationType: 'spaceId',
+        console.log(jwtToken);
+        console.log(queryStings);
+        
+        if (output) {
+          var widgetEl = document.getElementById('my-webexteams-widget');
+          ciscospark.widget(widgetEl).spaceWidget({
+            guestToken: jwtToken,
+            destinationType: key,
+            destinationId: emailvalue,
+            spaceActivities: { "files": true, "meet": true, "message": true, "people": true },
+            initialActivity: 'message',
+            secondaryActivitiesFullWidth: false
+          });
+   
+          
+        }
+      } else {
+        alert('Invalid Guest Token ... please provide valid');
+      }
+    })
+
+    var d = moment(new Date()).format('MM-DD-YYYY, h:mm:ss a');
+    document.getElementById('addnotes').onclick = function () {
+      document.getElementById('notes').style.display = 'block';
+      var t = tinymce.activeEditor.getContent({ format: 'raw' });
+      var replace = d;
+      var newItem = document.createElement("p");
+      newItem.style.marginBottom = 0;
+      var textnode = document.createTextNode(replace);
+      newItem.appendChild(textnode);
+      document.getElementById('notes').appendChild(newItem);
+      document.getElementById('notes').innerHTML += t;
+      var element = document.getElementById("notes");
+      element.scrollTop = element.scrollHeight - element.clientHeight;
+      tinymce.activeEditor.setContent('');
+      var parameters = { Notes: t, imei: queryStings['imei'] };
+      $.get('/addNotes', parameters, function (data) {
+        console.log(data, 'Response data');
+      });
+    }
+
+    // document.getElementById('showNotes').onclick = function () {
+    //   var showNotes = document.getElementById('hideNotes');
+    //   showNotes.style.display = 'inline';
+    //   var showNotes = document.getElementById('showNotes');
+    //   showNotes.style.display = 'none';
+    //   var d = document.getElementById('notes_block');
+    //   d.style.display = 'inline';
+    //   d.className = "col-md-6";
+    //   var cisco = document.getElementById('cisco_block');
+    //   cisco.classList.remove("col-md-12");
+    //   cisco.className = "col-md-6";
+    // }
+    // document.getElementById('hideNotes').onclick = function () {
+    //   var showNotes = document.getElementById('hideNotes');
+    //   showNotes.style.display = 'none';
+    //   var showNotes = document.getElementById('showNotes');
+    //   showNotes.style.display = 'inline';
+    //   var d = document.getElementById('notes_block');
+    //   d.style.display = 'none';
+    //   d.classList.remove("col-md-6");
+    //   var cisco = document.getElementById('cisco_block');
+    //   cisco.classList.remove("col-md-6");
+    //   cisco.className = "col-md-12";
+    // }
+    function manageUi(id) {
+      var showNotes = document.getElementById(id);
+          showNotes.style.display = 'none';
+      switch (id) {
+        case 'hideNotes':
+          var showNotes = document.getElementById('showNotes');
+          showNotes.style.display = 'inline';
+          var d = document.getElementById('notes_block');
+          d.style.display = 'none';
+          d.classList.remove("col-md-6");
+          var cisco = document.getElementById('cisco_block');
+          cisco.classList.remove("col-md-6");
+          cisco.className = "col-md-12";
+          break;
+        case 'showNotes':
+           var showNotes = document.getElementById('hideNotes');
+          showNotes.style.display = 'inline';
+          var d = document.getElementById('notes_block');
+          d.style.display = 'inline';
+          d.className = "col-md-6";
+          var cisco = document.getElementById('cisco_block');
+          cisco.classList.remove("col-md-12");
+          cisco.className = "col-md-6";
+          break;
+        default:
+          break;
+      }
+
+    }
+
+    document.getElementById('getnotes').onclick = function () {
+      var params = { imei: queryStings['imei'] };
+      tinymce.activeEditor.setContent('');
+      $.get('/getNotes', params, function (data) {
+        console.log(data, 'returns data');
+        if (data.status) {
+          document.getElementById('notes').style.display = 'block';
+          data.notes.forEach(element => {
+            var newItem = document.createElement("p");
+            newItem.style.marginBottom = 0;
+            var textnode = document.createTextNode(moment(new Date(element.date)).format('MM-DD-YYYY, h:mm:ss a'));
+            newItem.appendChild(textnode);
+            document.getElementById('notes').appendChild(newItem);
+            document.getElementById('notes').innerHTML += element.notes;
+          });
+          var element = document.getElementById("notes");
+          element.scrollTop = element.scrollHeight - element.clientHeight;
+        } else {
+          document.getElementById('notes').style.display = 'none';
+          alert('No Data Found');
+        }
+
+      });
+    }
+
+
+  </script>
+
+</body>
+
+</html>

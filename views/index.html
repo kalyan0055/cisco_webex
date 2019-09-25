@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sample: Multi Party Calling</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <div class="container-fluid">
+
+
+    <h1>Multi Party Calling</h1>
+    <p>This sample demonstrates group calling.</p>
+    <form id="credentials">
+      <fieldset>
+        <legend>Credentials</legend>
+        <input id="access-token" name="accessToken" placeholder="Your access token" type="text">
+        <input id="connect" title="connect" type="submit" value="connect">
+        <p id="connection-status">disconnected</p>
+      </fieldset>
+    </form>
+
+    <form id="dialer">
+      <fieldset>
+        <legend>Dialer</legend>
+        <input id="invitee" name="invitee" placeholder="Room ID or SIP URI" type="text">
+        <input title="dial" type="submit" value="dial">
+      </fieldset>
+    </form>
+    <form id="controls-data">
+      <fieldset>
+        <legend>Teams</legend>
+        <select id="teams"   class="browser-default custom-select">
+            <option id='' value=""> Select </option>
+
+          <% if(team) {  
+            team.forEach(function(team,index) { %>
+               
+          <option id=<%= 'team'+index  %>   value=<%= team.id %>> <%= team.name %> ,<%= index %> </option>
+          <%  }); }  %>
+        </select>
+        <legend>Team Memberships</legend>
+        <%= team_members.length %>  
+        <select id="team_members"  class="browser-default custom-select">
+          <% if(team_members.length > 0) {  
+            team_members.forEach(function(team_members,index) { %>
+          <option id=<%= 'tmember'+index  %> value=<%= team_members.id %>> <%= team_members.personEmail %> </option>
+          <%  }); }  %>
+        </select>
+        <legend>Rooms</legend>
+        <select id="rooms" class="browser-default custom-select">
+          <% if(room.length) {  
+            room.forEach(function(room,index) { %>
+          <option id=<%= 'room'+index  %>  value=<%= room.id %>> <%= room.title %> </option>
+          <%  }); }  %>
+        </select>
+      </fieldset>
+    </form>
+    <form id="call-controls">
+      <fieldset>
+        <legend>Call Controls</legend>
+        <button id="hangup" title="hangup" type="button">cancel/hangup</button>
+      </fieldset>
+    </form>
+
+    <div style="display: flex">
+      <video style="width:50%" id="self-view" muted autoplay></video>
+      <div style="width:50%">
+        <audio id="remote-view-audio" autoplay></audio>
+        <video id="remote-view-video" autoplay></video>
+      </div>
+    </div>
+    
+    <button id="create_team" title="Create Team">Creat Team</button>
+    <span id="team_status"></span>
+    <button id="team_list" title="Teams">Get Teams</button>
+    <!-- <span id="team_status"></span> -->
+
+  </div>
+  <!-- /bundle.js is the bundled CiscoSpark JavaScript SDK -->
+  <!-- <script src="/bundle.js"></script> -->
+  <!-- app.js is your application code -->
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="../views/app.js"></script>
+</body>
+
+</html>

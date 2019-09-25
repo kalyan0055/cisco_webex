@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>C3 TRACKER</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  <div class="container-fluid" style="padding-left: 30px;">
+    <h3 style="text-align: center;"> &nbsp TRACKtech Assistant is requesting the following:</h3>
+    <div class="row">
+
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+      </div>
+      <div class=" col-lg-6 col-md-6 col-sm-12 col-xs-12   ">
+
+        <form action="/cisco_stuff">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Team Name</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              placeholder="Team Name">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Team Memberships</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="email's separated by comma">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Room Name</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Room Name">
+          </div>
+          <div class="form-group">
+          <button type="submit" class="btn btn-primary ">Submit</button>
+          </div>
+        </form>
+
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+      </div>
+
+
+    </div></div><br>
+
+
+    <script>
+      var key;
+      let urlqueryStrings = (new URL(document.location)).searchParams;
+      let params = new URLSearchParams(urlqueryStrings);
+      let entries = params.entries(); //returns an iterator of decoded [key,value] tuples
+      let queryStrings = this.paramsToObject(entries); //{abc:"foo",def:"[asf]",xyz:"5"}
+      function paramsToObject(entries) {
+        let result = {}
+        for (let entry of entries) { // each 'entry' is a [key, value] tupple
+          const [key, value] = entry;
+          result[key] = value;
+        }
+        return result;
+      }
+      if (queryStrings) {
+        if ((queryStrings.hasOwnProperty('username')) == true) {
+          key = queryStrings['username'];
+          //do something with value;
+        }
+      }
+
+      document.getElementById('submits').onclick = function () {
+        $.ajaxSetup({
+          headers: {
+            "Access-Control-Allow-Origin": "http://httpbin.org/ip"
+          }
+        });
+        $.getJSON('http://localhost:3002/acceptCiscoTerms', { username: key }, function (data) {
+          console.log('datA', data)
+
+        })
+      }
+
+    </script>
+
+
+</body>
+
+</html>
