@@ -14,7 +14,7 @@
     "ciscospark": "^1.50.18",
     "cors": "^2.8.5",
     "ejs": "^2.6.1",
-    "express": "^4.15.2",
+    "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
     "jwt-builder": "^1.1.0",
     "moment": "^2.24.0",
